@@ -6,4 +6,7 @@ microRTS project from SEU
  
   2. run microrts/src/tests/sockets/RunClientExample.java
   
+  
+  Focus on SeverAI.py and don't pay attention to SocketAI.py and hardCodedJSON.py
+  
   more readme is comming soon.
