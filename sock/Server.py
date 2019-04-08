@@ -2,15 +2,22 @@ import socket
 import json
 from hardCodedJSON import UnitTypeTable, UnitType, GameState
 
+# @author: Jiawei, Y.
+# Main file to look at.
+# Methods you should look at:
+#       BabyAI.getAction(player, gs)
+#       policy(player, gs)
+# Currently, policy always returns "Do nothing until be killed."
+# For the details "parameter" and "type" in the return dict of 
+# policy, please check hardCodedJSON.py
 
-
-class SeverAI:
+class ServerAI:
     """
-    Python Version Sever.
+    Python Version server.
 
-    This is nothing more than a simple python implementation of ``RunSeverexample.java``.
+    This is nothing more than a simple python implementation of ``Runserverexample.java``.
 
-    SeverAI creates a socket to listen to the given address and call ``SocketWrapperAI``
+    serverAI creates a socket to listen to the given address and call ``SocketWrapperAI``
     for handling communication.
 
     Parameters
@@ -45,7 +52,7 @@ class SeverAI:
     
     def runServer(self):
         """
-        run the sever
+        run the server
 
         Parameters
         ----------
@@ -73,8 +80,8 @@ class SocketWrapperAI:
     """
     Python Version SocketWrapperAI.
 
-    SocketWrapperAI handle with welcome messages and acknowledgements between clients and sever, 
-    as well as passing the game state information to the ``AI`` used in this sever.
+    SocketWrapperAI handle with welcome messages and acknowledgements between clients and server, 
+    as well as passing the game state information to the ``AI`` used in this server.
 
     Parameters
     ----------
@@ -88,11 +95,11 @@ class SocketWrapperAI:
     ``ai``: object, optional default None.
         ``AI``
 
-    All of the remaining parameters will be passed through SeverAI, don't worry it.
+    All of the remaining parameters will be passed through serverAI, don't worry it.
     
     Notes
     ---------
-    This is nothing more than a simple python implementation of ``JSONRunSeverexample.java``.
+    This is nothing more than a simple python implementation of ``JSONRunserverexample.java``.
     However, some internal implementation details is different from santi's one.
     """
 
@@ -156,7 +163,7 @@ class SocketWrapperAI:
                     self.clientSocket.sendall('ack\n'.encode()) 
 
 
-                # client asks sever to return units actions for current game state
+                # client asks server to return units actions for current game state
                 elif msg.startswith('getAction'):
                     # get player ID
                     player = msg.split()[1]
@@ -304,6 +311,7 @@ class BabyAI:
         return
 
 
+
 def policy(player, gs):
     """Policy used to generate actions.
 
@@ -388,6 +396,6 @@ def policy(player, gs):
 
 if __name__ == "__main__":
     babyAI = BabyAI()
-    serverAI = SeverAI(ai=babyAI)
+    serverAI = serverAI(ai=babyAI)
     serverAI.runServer()
                 
