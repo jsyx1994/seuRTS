@@ -29,7 +29,7 @@ class SocketAI:
         
         if welcome is not None:
             if self.debug >= 1:
-                print ("Msg from Sever: "+welcome.decode())
+                print ("Msg from Server: "+welcome.decode())
                 print ("SocketAI: welcome message received")
             self.reset()
 
