@@ -73,10 +73,3 @@ To be continued...
 - Most of state-of-art RL agents apply self-play in late training phase. Self-play is also arduous in this project.
     
 
-
-  
-  
- 
-
-  
-
