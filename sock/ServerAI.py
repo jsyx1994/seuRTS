@@ -396,6 +396,6 @@ def policy(player, gs):
 
 if __name__ == "__main__":
     babyAI = BabyAI()
-    serverAI = serverAI(ai=babyAI)
+    serverAI = ServerAI(ai=babyAI)
     serverAI.runServer()
                 
